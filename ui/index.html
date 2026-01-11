@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NinjaType</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <div id="app">
+        <header id="toggle-bar">
+            <div id="btns">
+                <div id="selection-indicator"></div>
+                <button class="time-btn" data-val="15">15</button>
+                <button class="time-btn" data-val="30">30</button>
+                <button class="time-btn" data-val="60">60</button>
+            </div>
+            <span id="timer" class="hide">30</span>
+        </header>
+    <main id="type-area">
+        <div id="text"> </div>
+    </main>
+    <div id="results" class="hide">
+            <div id="stats">
+                 <div id="wpm">wpm</div>
+                 <div id="accuracy">accuracy</div>
+            </div> 
+         <button id="again">Try again</button> 
+    </div>
+    <!-- Anime.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
+    <!-- Shuriken SVG Definition -->
+    <svg style="display: none;">
+        <symbol id="shuriken-icon" viewBox="0 0 100 100">
+            <path d="M50 0 L60 40 L100 50 L60 60 L50 100 L40 60 L0 50 L40 40 Z" fill="currentColor" />
+            <circle cx="50" cy="50" r="10" fill="#000" />
+        </symbol>
+    </svg>
+
+    <div id="shuriken-container"></div>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>

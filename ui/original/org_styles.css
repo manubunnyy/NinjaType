@@ -1,0 +1,158 @@
+:root {
+  --bg-color: #323437;
+  --main-color: #e2b714;
+  --caret-color: #e2b714;
+  --sub-color: #646669;
+  --text-color: #d1d0c5;
+  --error-color: #ca4754;
+  --error-extra-color: #791717;
+  --colorful-error-color: #ca4754;
+  --colorful-error-extra-color: #791717;
+
+  --font-family: "Inter", "Roboto Mono", "Segoe UI", "Roboto", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: background-color 0.3s;
+}
+
+.container {
+  width: 100%;
+  max-width: 1000px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+#stats {
+  display: flex;
+  gap: 2rem;
+  font-size: 1.5rem;
+  color: var(--sub-color);
+  height: 2rem;
+  align-items: center;
+}
+
+#stats .val {
+  color: var(--main-color);
+  font-weight: bold;
+}
+
+#typing-area {
+  position: relative;
+  font-size: 1.5rem;
+  line-height: 2.2rem;
+  height: 6.6rem; /* 3 lines */
+  overflow: hidden;
+  word-break: break-all;
+  user-select: none;
+}
+
+#words-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  transition: transform 0.2s ease-out;
+}
+
+.word {
+  color: var(--sub-color);
+  position: relative;
+}
+
+.word.active {
+  color: var(--sub-color);
+}
+
+.char {
+  position: relative;
+}
+
+.char.correct {
+  color: var(--text-color);
+}
+
+.char.incorrect {
+  color: var(--error-color);
+}
+
+#caret {
+  position: absolute;
+  width: 2px;
+  height: 1.5rem;
+  background-color: var(--caret-color);
+  border-radius: 1px;
+  transition: all 0.1s;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+#keyboard {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  opacity: 0.6;
+}
+
+.keyboard-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.key {
+  min-width: 2.5rem;
+  height: 2.5rem;
+  padding: 0 0.5rem;
+  background: var(--sub-color);
+  color: var(--bg-color);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: all 0.1s;
+}
+
+.key.active {
+  background: var(--main-color);
+  transform: translateY(2px);
+  box-shadow: 0 0 10px var(--main-color);
+}
+
+.key.wide {
+  min-width: 4rem;
+}
+
+.key.extra-wide {
+  min-width: 15rem;
+}
+
+#hidden-input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
